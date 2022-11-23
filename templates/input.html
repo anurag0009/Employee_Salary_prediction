@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Salary Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+body  {
+  background-color: lavender;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 2px groove;
+}
+</style>
+<body>
+    <div class="predict">
+        <h2 style="margin: auto; width: 35%; padding: 0.5%; border: 2px solid; text-align: center;">Employee Salary prediction</h2>
+        <!--MAin input for receiving query to ml-->
+        <form action="{{ url_for('predict')}}"method="post">
+            <fieldset style="float:center; height:350px; width:1630px;">
+                <legend style=""><b>****************Information Data:*************</b></legend>
+
+                <p><b>Job Title:</b><br>
+                    <select name="jobType" id="jobType" required>
+                        <option value="1">CFO</option>
+                        <option value="2">CEO</option>
+                        <option value="3">VICE_PRESIDENT</option>
+                        <option value="4">MANAGER</option>
+                        <option value="5">JUNIOR</option>
+                        <option value="6">JANITOR</option>
+                        <option value="7">CTO</option>
+                        <option value="8">SENIOR</option>
+                    </select></p>		
+                    <p><b>DEGREE :</b><br>
+                        <select name="degree" id="degree" required>
+                            <option value="1">MASTERS</option>
+                            <option value="2">HIGH_SCHOOL</option>
+                            <option value="3">DOCTORAL</option>
+                            <option value="4">BACHELORS</option>
+                            <option value="5">NONE</option>
+                        </select></p>	
+                        <p><b>MAJOR COURSES:</b><br>
+                            <select name="major" id="major" required>
+                                <option value="1">MATH</option>
+                                <option value="2">NONE</option>
+                                <option value="3">PHYSICS</option>
+                                <option value="4">CHEMISTRY</option>
+                                <option value="5">COMPSCI</option>
+                                <option value="6">BIOLOGY</option>
+                                <option value="7">LITERATURE</option>
+                                <option value="8">BUSINESS</option>
+                                <option value="9">ENGINEERING</option>
+                            </select></p>
+                            <p><b>INDUSTRY:</b><br>
+                                <select name="industry" id="industry" required>
+                                    <option value="1">HEALTH</option>
+                                    <option value="2">WEB</option>
+                                    <option value="3">AUTO</option>
+                                    <option value="4">FINANCE</option>
+                                    <option value="5">EDUCATION</option>
+                                    <option value="6">OIL</option>
+                                    <option value="7">SERVICE</option>
+                                </select></p>	
+                            
+                            <p><b>Year Experience</b><br>
+                                    <input type="text" name="yearsExperience" placeholder="Years Experience" required="required" /></p>
+                             
+                            <p><b>Miles from metropolis</b><br>
+                                    <input type="text" name="milesFromMetropolis" placeholder="Miles from Metropolis" required="required" /></p>
+                                        
+                                
+                        	
+
+            </fieldset>
+            <div style="text-align:center;">
+                <button type="submit" class="btn btn-primary btn-block btn-large"><b>Predict Salary</b></button>
+            </div>
+
+        </form>
+
+    </div>
+</body>
+</html>
